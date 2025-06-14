@@ -156,7 +156,7 @@ elif page == "room":
             if st.button(f"➡ {room_id}", key=f"room_{room_id}"):
                 st.session_state.page = "bed"
                 st.session_state.selected_room = room_id
-                st.experimental_rerun()
+                st.rerun()
     if st.button("🔙 Back to Floor Selection"):
         st.session_state.page = "floor"
         st.rerun()
@@ -181,7 +181,7 @@ elif page == "bed":
             if st.button(f"➡ {bed.bed_id}", key=f"bed_{bed.bed_id}"):
                 st.session_state.page = "book"
                 st.session_state.selected_bed = bed.bed_id
-                st.experimental_rerun()
+                st.rerun()
     if st.button("🔙 Back to Rooms"):
         st.session_state.page = "room"
         st.rerun()
