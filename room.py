@@ -135,7 +135,7 @@ if page == "floor":
             if st.button(f"Floor {i} (🛌 {booked} / {booked + available})"):
                 st.session_state.page = "room"
                 st.session_state.selected_floor = i
-                st.experimental_rerun()
+                st.rerun()
 
 # Page: Room selection
 elif page == "room":
@@ -159,7 +159,7 @@ elif page == "room":
                 st.experimental_rerun()
     if st.button("🔙 Back to Floor Selection"):
         st.session_state.page = "floor"
-        st.experimental_rerun()
+        st.rerun()
 
 # Page: Bed selection
 elif page == "bed":
@@ -184,7 +184,7 @@ elif page == "bed":
                 st.experimental_rerun()
     if st.button("🔙 Back to Rooms"):
         st.session_state.page = "room"
-        st.experimental_rerun()
+        st.rerun()
 
 # Page: Booking
 elif page == "book":
@@ -201,7 +201,7 @@ elif page == "book":
             save_room_data(df)
             st.success(f"Bed {bed_id} successfully booked!")
             st.session_state.page = "bed"
-            st.experimental_rerun()
+            st.rerun()
     else:
         st.info(f"Already booked by {bed_data['student_name']} (ID: {bed_data['student_id']})")
         name = st.text_input("Modify Name", value=bed_data['student_name'])
@@ -217,7 +217,7 @@ elif page == "book":
             save_room_data(df)
             st.success("Booking cleared.")
             st.session_state.page = "bed"
-            st.experimental_rerun()
+            st.rerun()
         available_beds = df[(df['status'] == 'available') & (df['bed_id'] != bed_id)]['bed_id'].tolist()
         move_to = st.selectbox("Move booking to another bed", options=available_beds if available_beds else ["No beds available"])
         if move_to != "No beds available" and st.button("➡ Move Booking"):
@@ -226,10 +226,10 @@ elif page == "book":
             save_room_data(df)
             st.success(f"Moved booking to {move_to}")
             st.session_state.page = "bed"
-            st.experimental_rerun()
+            st.rerun()
     if st.button("🔙 Back to Beds"):
         st.session_state.page = "bed"
-        st.experimental_rerun()
+        st.rerun()
     if st.button("🔜 Go to Floor Selection"):
         st.session_state.page = "floor"
-        st.experimental_rerun()
+        st.rerun()
