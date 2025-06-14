@@ -46,7 +46,7 @@ if not st.session_state.authenticated:
     if st.button("Login"):
         if username == "admin" and password == "admin123":
             st.session_state.authenticated = True
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Invalid credentials")
     st.stop()
