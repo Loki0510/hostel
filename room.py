@@ -115,7 +115,7 @@ st.markdown("<h1 style='text-align: center; color: navy;'>Sri Bhavishya Room All
 if st.button("🚪 Logout", key="logout"):
     st.session_state.authenticated = False
     st.session_state.page = "floor"
-    st.experimental_rerun()
+    st.rerun()
 
 # Navigation logic
 page = st.session_state.get("page", "floor")
