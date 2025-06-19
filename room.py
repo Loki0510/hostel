@@ -168,7 +168,7 @@ elif page == "bed":
     room_beds = df[df['room_id'] == room_id]
     cols = st.columns(5)
     for i, bed in enumerate(room_beds.itertuples()):
-        bed_img = "🛏️<br>🛏️"  # Double bed emoji stacked
+        bed_img = "🛏️"  # Double bed emoji stacked
         bg_color = '#d4edda' if bed.status == 'available' else '#f8d7da'
         label = f"{bed_img}"
         with cols[i % 5]:
