@@ -1,0 +1,21 @@
+# Ignore the SQLite database (contains student info)
+hostel.db
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore Streamlit secrets if used later
+.streamlit/secrets.toml
+
+# Ignore OS/IDE temp files
+.DS_Store
+.env
+*.env
+*.log
+*.sqlite3
+
+# VS Code/IDEA project files
+.vscode/
+.idea/
