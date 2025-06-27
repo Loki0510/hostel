@@ -88,7 +88,7 @@ if not st.session_state.logged_in:
             if c.fetchone():
                 st.session_state.logged_in = True
                 st.session_state.role = "admin"
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid admin credentials")
         else:
@@ -96,7 +96,7 @@ if not st.session_state.logged_in:
             if c.fetchone():
                 st.session_state.logged_in = True
                 st.session_state.role = "faculty"
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid faculty credentials")
 else:
@@ -105,7 +105,7 @@ else:
         if st.button("🚪 Logout"):
             st.session_state.logged_in = False
             st.session_state.role = None
-            st.experimental_rerun()
+            st.rerun()
 
     # === Faculty Dashboard ===
     if st.session_state.role == "faculty":
